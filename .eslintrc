@@ -1,0 +1,22 @@
+{
+  "extends": ["react-app","airbnb"],
+  "rules": {
+    "import/no-unresolved": 0,
+    "import/prefer-default-export": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-filename-extension": 0,
+    "no-use-before-define": 0,
+    "import/extensions": 0,
+    "no-console": ["error", { "allow": ["warn", "error", "info"] }],
+    "max-len": [
+      "error",
+      {
+        "code": 90,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreRegExpLiterals": true,
+        "ignoreTemplateLiterals": true
+      }
+    ]
+  }
+}
