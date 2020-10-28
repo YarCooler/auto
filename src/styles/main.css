@@ -1,0 +1,11 @@
+@import 'reset.css';
+@import "layout.css";
+@import "components/ui/search-input.css";
+@import "components/ui/search-results.css";
+@import "components/car-list.css";
+@import "components/search-history.css";
+
+html {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}

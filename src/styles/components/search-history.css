@@ -1,0 +1,39 @@
+.search-history {
+    display: grid;
+    row-gap: 1rem;
+    align-content: flex-start;
+}
+
+.search-history__title {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.search-history__list {
+    display: grid;
+    row-gap: 1rem;
+}
+
+.search-history__item {
+    display: grid;
+    grid-template-columns: 1fr 30px;
+    column-gap: 20px;
+    align-items: center;
+}
+.search-history__delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+}
+
+.search-history__delete:hover, .search-history__delete:focus {
+    border-color: var(--black-color);
+}
+
+.search-history__delete:active {
+    box-shadow: 0 0 0 2px lightgray;
+}

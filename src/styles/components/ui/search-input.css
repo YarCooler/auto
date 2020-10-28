@@ -1,0 +1,35 @@
+@import "../../vars.css";
+
+.search-input {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 20px 1fr;
+    column-gap: .625em;
+    padding: 1rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: .3em;
+}
+
+.search-input:focus-within {
+    border-color: var(--main-color);
+}
+
+.search-input::placeholder {
+    color: var(--secondary-color);
+}
+
+.search-input__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input__field {
+    font-size: 1.2rem;
+    color: var(--black-color);
+}
+
+.search-input__field, .search-input__field:hover, .search-input__field:focus {
+    border: none;
+    outline: none;
+}
