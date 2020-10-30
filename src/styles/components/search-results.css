@@ -1,4 +1,4 @@
-@import "../../vars.css";
+@import "../vars.css";
 
 .search-results {
     display: grid;
@@ -10,6 +10,15 @@
     box-shadow: 0 3px 6px 0 var(--secondary-color);
     border-radius: .3em;
     font-weight: 600;
+}
+
+.search-results__item {
+    width: 100%;
+    text-align: left;
+}
+
+.search-results__item:hover{
+    transform: scale(1.02);
 }
 
 .search-results__selected {

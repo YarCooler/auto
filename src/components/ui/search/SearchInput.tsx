@@ -3,12 +3,14 @@ import { SearchIcon } from '../../icons/SearchIcon';
 
 interface Props {
     onSearch(query: string): void;
-    current?: string
+    placeholder?: string;
     query?: string
 }
 
 export const SearchInput = (props: Props) => {
-  const { onSearch, query, current } = props;
+  const {
+    onSearch, query, placeholder,
+  } = props;
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onSearch(event.target.value);
@@ -22,13 +24,13 @@ export const SearchInput = (props: Props) => {
         type="search"
         value={query}
         onChange={onChange}
-        placeholder={current}
+        placeholder={placeholder}
       />
     </div>
   );
 };
 
 SearchInput.defaultProps = {
-  current: '',
   query: '',
+  placeholder: '',
 };

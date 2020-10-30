@@ -1,15 +1,19 @@
 import React from 'react';
-import './styles/main.css';
+import { Provider } from 'react-redux';
 import { Layout } from './components/templates/Layout';
 import { SearchBlock } from './components/SearchBlock';
 import { HistoryBlock } from './components/HistoryBlock';
+import { store } from './redux/configureStore';
+import './styles/main.css';
 
 function App() {
   return (
-    <Layout>
-      <SearchBlock />
-      <HistoryBlock />
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        <SearchBlock />
+        <HistoryBlock />
+      </Layout>
+    </Provider>
   );
 }
 

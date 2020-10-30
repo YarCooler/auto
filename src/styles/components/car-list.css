@@ -1,14 +1,23 @@
 @import "../vars.css";
 
+.car-list-wrapper{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    max-height: 350px;
+    box-shadow: 0 3px 6px 0 var(--secondary-color);
+    border-radius: .3em;
+    background-color: var(--white-color);
+    box-sizing: border-box;
+    overflow: auto;
+}
+
 .car-list {
     display: grid;
     row-gap: 1rem;
     margin-top: -1px;
     padding: 1.25rem 1rem;
-    background-color: var(--white-color);
     color: var(--black-color);
-    box-shadow: 0 3px 6px 0 var(--secondary-color);
-    border-radius: .3em;
     font-weight: 600;
 }
 

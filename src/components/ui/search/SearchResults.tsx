@@ -1,37 +1,76 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Hint } from '../../../models/Hint';
+import { Store } from '../../../redux/store';
+import { ExtendedAction, fetchHints, pushHistoryItem } from '../../../redux/actions';
 
 interface Props {
-    items: string[];
-    query: string
+    items: Hint[];
+    query: string;
+    onSelect(value:Hint): void
+    pushHistoryItemAction(hint:Hint): ExtendedAction<Hint>
 }
 
-export const SearchResults = (props:Props) => {
-  const { items, query } = props;
+const SearchResults = (props:Props) => {
+  const {
+    items, query, pushHistoryItemAction, onSelect,
+  } = props;
 
   return (
-    <div className="search-results">
-      {items.map((item) => {
+    <div className="search-results search-block__result">
+      {items.map((item, index) => {
         //  TODO: add recursive calculation
-        const overlapInIndex = item.indexOf(query);
+        const overlapInIndex = item.title.toLowerCase().indexOf(query.toLowerCase());
+
+        const onItemSelect = () => {
+          pushHistoryItemAction(item);
+          onSelect(item);
+        };
 
         if (overlapInIndex !== -1) {
           const selected = (
             <span className="search-results__selected">
-              {item.slice(overlapInIndex, overlapInIndex + query.length)}
+              {item.title.slice(overlapInIndex, overlapInIndex + query.length)}
             </span>
           );
 
           return (
-            <p key={item}>
-              {item.slice(0, overlapInIndex)}
+            <button
+              onClick={onItemSelect}
+              type="button"
+              key={item.model_id + item.brand_id + item.folder_id}
+              className="search-results__item"
+            >
+              {item.title.slice(0, overlapInIndex)}
               {selected}
-              {item.slice(overlapInIndex + query.length)}
-            </p>
+              {item.title.slice(overlapInIndex + query.length)}
+            </button>
           );
         }
 
-        return <p key={item}>{item}</p>;
+        return (
+          <button
+            onClick={onItemSelect}
+            type="button"
+            key={item.model_id + index}
+            className="search-results__item"
+          >
+            {item.title}
+          </button>
+        );
       })}
     </div>
   );
 };
+
+const connectedWithRedux = connect(
+  (state: { reducer:Store }) => ({
+    hints: state.reducer.hints.list,
+  }),
+  {
+    fetchHints,
+    pushHistoryItemAction: pushHistoryItem,
+  },
+)(SearchResults);
+
+export { connectedWithRedux as SearchResults };

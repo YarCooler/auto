@@ -1,0 +1,16 @@
+.search-block {
+    position: relative;
+}
+
+.search-block:focus {
+    border: none;
+    outline: none;
+}
+
+.search-block__result {
+    position: absolute;
+    /*bottom: calc(-100% + 7px);*/
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
